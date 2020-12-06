@@ -33,21 +33,6 @@ spec:
 
   type: NodePort
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: fleetman-webapp
-spec:
-  ports:
-    - name: http
-      port: 8080
-      nodePort: 30080
-
-  selector:
-    app: webapp
-
-  type: NodePort
-
 ---
 apiVersion: v1
 kind: Service
