@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fleetman-webapp
+  name: orkweb
 spec:
   ports:
     - name: http
-      port: 80
+      port: 8080
       nodePort: 30080
 
   selector:
-    app: webapp
+    app: orkweb
 
   type: NodePort
 
@@ -18,48 +18,14 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: fleetman-queue
+  name: fleetdb
 spec:
   ports:
-    - name: http
-      port: 8161
-      nodePort: 30010
-
-    - name: endpoint
-      port: 61616
-      
-  selector:
-    app: queue
-
-  type: NodePort
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: fleetman-position-tracker
-spec:
-  ports:
-    - name: http
-      port: 8080
+    - name: orekadbport
+      port: 3306
 
   selector:
-    app: position-tracker
-
-  type: ClusterIP
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: fleetman-position-api-gateway
-spec:
-  ports:
-    - name: http
-      port: 8080
-      
-  selector:
-    app: position-api-gateway
+      app: fleetdb
 
   type: ClusterIP
 

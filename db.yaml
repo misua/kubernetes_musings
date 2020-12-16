@@ -1,18 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orkweb
+  name: fleetdb
 spec:
   selector:
     matchLabels:
-      app: orkweb
+      app: fleetdb
   replicas: 1
-  template: # template for the pods
+  template: # template for the webapp
     metadata:
       labels:
-        app: orkweb
+        app: fleetdb
     spec:
       containers:
-      - name: orkweb
-        image: chazpogz/orkweb:v1
-
+      - name: fleetdb
+        image: chazpogz/orekadb:v1
