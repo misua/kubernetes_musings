@@ -1,0 +1,3 @@
+FROM docker.io/chazpogz/orkaudio:v1
+ENTRYPOINT /etc/init.d/orkaudio start && bash
+

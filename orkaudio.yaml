@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orkaudio
+spec:
+  selector:
+    matchLabels:
+      app: orkaudio
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: orkaudio
+    spec:
+      containers:
+      - name: orkaudio
+        image: docker.io/chazpogz/orkaudio:v2

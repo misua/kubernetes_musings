@@ -14,18 +14,24 @@ spec:
     spec:
       containers:
       - name: orkweb
-        image: docker.io/chazpogz/orkweb:v4
+        image: docker.io/chazpogz/orkweb:v2
         livenessProbe:
             httpGet:
                path: /index.jsp
                port: 8080
-            initialDelaySeconds: 120
-            periodSeconds: 20
+             initialDelaySeconds: 120
+             periodSeconds: 20
 
         readinessProbe:
-            httpGet:
+             httpGet:
                path: /index.jsp
                port: 8080
-            initialDelaySeconds: 120
-            periodSeconds: 20
+             initialDelaySeconds: 120
+             periodSeconds: 20
 
+         livenessProbe:
+             exec:
+              command:
+              - ps -ef | grep orkaudio
+             initialDelaySeconds: 120
+             periodSeconds: 20
