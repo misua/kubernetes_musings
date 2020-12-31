@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: fleetdb
-        image: docker.io/chazpogz/orekadb:v2
+        image: docker.io/chazpogz/orekadb:v66
